@@ -2,13 +2,17 @@
 
 ## Navigating The Shell
 
+* Using phrases as arguments: quote the argument with `'` or `"`, or escape just the relevant characters with `\`.
+* `.`: Current directory `..`: Parent directory
 * `cd -`: Change directory back and forth between two
 * `ls -l`: List files in long format
-  * Presenting file permissions for the user, the user group and anyone else
+  * Same function with `ll`
+  * Presenting file permissions for the user, the user group and anyone else with `rwx`. And the `d` at the beginning of these `rwx` groups indicates this is a directory.
   * For directory permissions:
     * Read: Whether it is allowed to "list" files in it.
-    * Write: Whether it is allowed delete/rename/create files in it. **If not, we can make them empty, but just cannot delete it.**
+    * Write: Whether it is allowed delete/rename/create files in it. **If the directory does not have the write permission but the certain file has, we can make it empty, but just cannot delete it.**
     * Executable: Whether it is allowed to enter the directory.
+* `rmdir`: Remove the directory only if it is empty. So it is a safe way to delete directory.
 
 * `man ls`: Show the mannual page of ls. **man takes an argument of the program name to show its mannual page**
 
@@ -42,6 +46,11 @@
     missing:~$ curl --head --silent google.com | grep --ignore-case content-length | cut --delimiter=' ' -f2
     219
     ```
+	The `cut` command is a little different in MACOSX.
+	```bash
+	missing:~$ curl --head --silent google.com | grep --ignore-case content-length | cut -d ' ' -f2
+	219
+	```
 
 ## A Vertatile and Powerful Tool
 
@@ -81,6 +90,27 @@
   ```bash
   echo 1 | sudo tee /sys/class/leds/input6::scrolllock/brightness
   ```
+
+
+## Additional commands
+
+* `tee` -- pipe fitting. The tee utility copies standard input to standard output, making a copy
+     in zero or more files.
+
+* `curl` -- transfer a URL. The curl utility is a tool to transfer data from or to a server, using one of the
+       supported protocols, such as FTP, HTTP, SMTP.
+
+* `grep` -- file pattern searcher. The grep utility searches any given input files, selecting lines that
+     match one or more patterns.
+
+* `tail` -- display the last part of a file. The tail utility displays the contents of file or, by default, its stan-
+     dard input, to the standard output.
+
+* `cut` -- cut out selected portions of each line of a file. The cut utility cuts out selected portions of each line (as specified by
+     list) from each file and writes them to the standard output.
+
+* The difference between `sudo` and `su`: `Sudo` runs a single command with root privileges, while `su` switches you to the root user account and requires the root account’s password.
+
 
 ## Exercise
 
