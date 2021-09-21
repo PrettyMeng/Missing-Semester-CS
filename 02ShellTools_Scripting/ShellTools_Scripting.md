@@ -83,6 +83,8 @@ false ; echo "This will always run"
 ### Get the output of a command as a variable/file
 
 * `xargs`: convert `stdin` to command line arguments
+  * command line arguments: will not block the shell
+  * `stdin` will block the shell if the input is empty
 
 * Command substition: `$(CMD)` will execute `CMD` and substitute it in place
   * e.g. `for file in $(ls)`: Iterate the output of `ls`
