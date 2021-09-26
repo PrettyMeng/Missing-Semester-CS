@@ -207,6 +207,14 @@ find . -name '*.tmp' -exec rm {} \;
 find . -name '*.png' -exec convert {} {}.jpg \;
 ```
 
+* `fd`
+```bash
+# a simple, fast, and user-friendly alternative to `find`
+fd 'PATTERN' = find -name '*PATTERN*'
+# Find all python files
+fd '.*.py'
+```
+
 * `locate`
   * Use a database and thus **faster** to search for files. The database is updated by `updateb`, which is perform daily. 
   * Compared with `find`, **can only search via file name**.
@@ -214,7 +222,7 @@ find . -name '*.png' -exec convert {} {}.jpg \;
 ### Finding code
 
 * `grep`
-  * `-C`: Getting the **C**ontext. Print 5 lines before and after the match
+  * `-C`: Getting **C**ontext around the matching line. e.g. `-C 5` will print 5 lines before and after the match.
   * `-v`: In**v**erting the match, print all lines that do not match the pattern
   * `-R`: **R**ecursively go into directories and look for files for the matching string
 * `rg` (ripgrep): ignore `.git` folders and using multi CPU support
@@ -227,7 +235,7 @@ find . -name '*.png' -exec convert {} {}.jpg \;
 ```bash
 # Find all python files where I used the requests library in a specified folder
 rg -t py 'import requests' ~/scratch
-# Find all files (including hidden files) without a shebang line
+# Find all files (including hidden files `-u`) without a shebang line
 rg -u --files-without-match "^#!"
 # Find all matches of foo and print the following 5 lines
 rg foo -A 5
@@ -256,9 +264,9 @@ rg --stats PATTERN
 ### Directory navigation
 
 * Several useful tools to browse the file structure:
-  * `tree`
+  * `tree` `ls -R`
   * `broot	`
-  * `nnn`
+  * `nnn`: also shows hidden files in the directory
 
 * `fasd`
 
