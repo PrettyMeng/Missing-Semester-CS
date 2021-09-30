@@ -14,16 +14,16 @@ Keystrokes have different meanings in different modes
 * **Normal**: Moving around a file and making edits `<ESC>`
 * **Insert**: For inserting text `i`
 * **Replace**: for replacing text `R`
-* **Visual**: for selecting blocks of text `<Ctrl-v>`
+* **Visual**: for selecting blocks of tex
 * **Command-line**: for running a command `:`
 
 ## Basics
-
 ### Buffers, tabs, windows
 
 * **Buffers**: a set of open files
 * **Tabs**: a vim session has a number of tabs
 * **Windows**: Each tab has a number of windows, each window shows a single buffer. Windows are merely **views**. `:sp`
+<div align="center"><img src="pic/difference.png" alt= "Image" style="zoom:%;" /></div>
 
 ### Command-line
 
@@ -66,8 +66,8 @@ Keystrokes have different meanings in different modes
 ### Edits (Verbs)
 
 - `o` / `O`: insert line below / above
-- `d{movement}`: `dw` (delete the word) `d0` (delete to the beginning of the line) `dgg` (delete to the beginning of the file)
-- `c{movement}`: change, delete and enter the insert mode `cw` (change a word)
+- `d{movement}`: `dw` (delete the word) `d0` (delete to the beginning of the line) `dgg` (delete to the beginning of the file) `d$`(delete to end of the line)
+- `c{movement}`: change, delete and enter the insert mode `cw` (change a word) `cc`(delete the entire line and enter the insert mode at the cursor)
 - `dd` delete the line `cc` delete the line and insert something
 - `x` delete a character `r{char}` delete the character and replace with {char} `s` delete and enter the insert mode
 - In visual mode, select something and `d` will delete it, `c` will change it
@@ -88,5 +88,5 @@ Keystrokes have different meanings in different modes
 `i` means "inside", `a` means "around"
 
 - `ci(` change the contents inside the current pair of parentheses
-- `da'` delete a single-quoted string, including the single quotes
+- `da'` delete a single-quoted string, including the single quote
 
